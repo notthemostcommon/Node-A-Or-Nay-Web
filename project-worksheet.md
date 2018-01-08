@@ -23,15 +23,33 @@ Use this section to describe your final project and perhaps any links to relevan
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 ## MVP 
+create database and tables 
+search feature
+search results page 
+render watched 
+single page help
+rating with stars and store in db 
+create watch/delete watch
+aggregate ratings and render
+create watch page 
 
 Include the full list of features that will be part of your MVP 
 
 ## POST MVP
+Historical grade chart 
+Comments
+Map 
+Update 
+Authentication
 
 Include the full list of features that you are considering for POST MVP
 
 ## Wireframes
+http://res.cloudinary.com/themostcommon/image/upload/v1515447318/IMG_9281_qay66k.jpg
 
+http://res.cloudinary.com/themostcommon/image/upload/v1515447322/IMG_7062_owp3vz.jpg
+
+http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
 Include images of your wireframes. 
 
 ## App Components
@@ -57,7 +75,18 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Component 1 | H | 10hrs| 12hrs | 12hrs |
+| create database | H | 1hr | 1hr | |
+| search feature | H | 3hrs | 12hrs | |
+| render violations | H | 2hrs |  | |
+| create watched | H | 2hrs | |  |
+| render watched | H | 1hrs | | |
+| single page help | H | 2hrs | 1hrs | |
+| rating with stars | H | 3hrs | |  |
+| create watch and store | H | 3hrs | | |
+| logic for filtering response | H | 3hrs| | |
+| aggregate ratings and render | H | 2hrs | | |
+
+
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
