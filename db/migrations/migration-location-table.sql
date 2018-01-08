@@ -3,5 +3,5 @@
 CREATE TABLE IF NOT EXISTS locations (
   id SERIAL PRIMARY KEY,
   camis INTEGER, 
-  dba VARCHAR
+  dba VARCHAR(255)
 );

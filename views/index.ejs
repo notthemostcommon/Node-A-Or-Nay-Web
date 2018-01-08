@@ -1,0 +1,13 @@
+<% include ./partials/head.ejs %>
+<% include ./partials/nav.ejs %>
+<% include ./partials/help.ejs %>
+
+<h1>Are we live? </h1>
+
+<form action="/results" method="POST">
+<input id="autocomplete" type="text" placeholder="Restaurant Name" name="search">
+<input id="search-submit" type="submit" value="submit">
+</form>
+
+
+<% include ./partials/footer.ejs %>

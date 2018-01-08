@@ -1,0 +1,110 @@
+#nav-wrapper {
+  display: flex; 
+  flex-direction: row; 
+  grid-area: header; 
+  font-family: 'Open Sans', sans-serif;
+  color: white; 
+}
+
+.nav {
+  list-style-type: none; 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav:firstchild li {
+  margin-right: auto; 
+}
+
+li {
+
+	padding: 20px;
+  font-size: 30px;
+	font-variant: small-caps;
+}
+
+.nav-link {
+   align-self: flex-start;
+   
+}
+.nav-links a {
+  color: white;
+  text-decoration: none; 
+  flex: 1;
+  align-self: flex-end;
+}
+
+.fixed-height {
+      padding: 1px;
+      max-height: 200px;
+      overflow: auto;
+}
+
+.loading {
+      display: none;
+      width: 16px;
+      height: 16px;
+      background-image: url(loading.gif);
+      vertical-align: text-bottom;
+    }; 
+
+  #autocomplete.ui-autocomplete-loading ~ .loading {
+      display: inline-block;
+    }
+    .ui-autocomplete .m-name {
+      margin-right: 1em;
+      font-size: larger;
+    }
+    .ui-autocomplete .m-year {
+      float: right;
+      font-size: larger;
+    }
+    .ui-autocomplete .m-cast {
+      display: block;
+      font-size: smaller;
+    }
+    /* Rotten Tomatoes Branding */
+    .ui-autocomplete .rt-main {
+      display: block;
+      margin-left: 1em;
+      font-size: smaller;
+    }
+    .ui-autocomplete .rt-ico {
+      display: inline-block;
+      margin-right: .5em;
+      width: 16px;
+      height: 16px;
+      background-image: url(rt-icons.png);
+      vertical-align: bottom;
+    }
+    .ui-autocomplete .rt-ico.fresh {
+      background-position: 0 0;
+    }
+    .ui-autocomplete .rt-ico.rotten {
+      background-position: -16px 0;
+    }
+    .ui-autocomplete .rt-ico.certified_fresh {
+      background-position: -32px 0;
+    }
+    .ui-autocomplete .rt-val {
+      display: inline-block;
+      margin-right: .5em;
+    }
+    .ui-autocomplete .rt-bar {
+      display: inline-block;
+      margin-right: .5em;
+      width: 10em;
+      height: 1em;
+      background-color: #ECE4B5;
+    }
+    .ui-autocomplete .rt-bar span {
+      display: block;
+      height: 1em;
+    }
+    .ui-autocomplete .rt-bar.fresh span, .ui-autocomplete .rt-bar.certified_fresh span {
+      background-color: #C91B22;
+    }
+    .ui-autocomplete .rt-bar.rotten span {
+      background-color: #94B13C;
+    }
+
+
