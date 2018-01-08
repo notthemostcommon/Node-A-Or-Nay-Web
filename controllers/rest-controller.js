@@ -1,25 +1,26 @@
 const axios = require('axios');
 const Help = require('../models/help'); 
-// const removeDuplicates = require('removeDuplicates');
+const removeDuplicates = require('removeDuplicates').default;
+console.log("this is remove", removeDuplicates.default); 
 const restController = {}; 
 
-function removeDuplicates(arr, key) {
-    if (!(arr instanceof Array) || key && typeof key !== 'string') {
-        return false;
-    }
+// function removeDuplicates(arr, key) {
+//     if (!(arr instanceof Array) || key && typeof key !== 'string') {
+//         return false;
+//     }
 
-    if (key && typeof key === 'string') {
-        return arr.filter(function (obj, index, arr) {
-            return arr.map(function (mapObj) {
-                return mapObj[key];
-            }).indexOf(obj[key]) === index;
-        });
-    } else {
-        return arr.filter(function (item, index, arr) {
-            return arr.indexOf(item) == index;
-        });
-    }
-}
+//     if (key && typeof key === 'string') {
+//         return arr.filter(function (obj, index, arr) {
+//             return arr.map(function (mapObj) {
+//                 return mapObj[key];
+//             }).indexOf(obj[key]) === index;
+//         });
+//     } else {
+//         return arr.filter(function (item, index, arr) {
+//             return arr.indexOf(item) == index;
+//         });
+//     }
+// }
 
 restController.index = (req, res) => {
   res.render('index')
@@ -53,6 +54,7 @@ restController.search = (req, res) => {
 	  	// let recent = data.data[0].camis; 
 
 	  	let uniqueLocs = removeDuplicates(data.data, 'camis');
+	  	return uniqueLocs; 
 
 
 
@@ -61,8 +63,9 @@ restController.search = (req, res) => {
 	  	
 	  })
 	  .then( data => {
+	  	console.log(data); 
 	    res.render('results', {
-	    	data: data.data
+	    	data: data
 	     })
 	  })
 	  .catch( err => {
