@@ -19,19 +19,36 @@ You are **responsible** for scheduling time with your squad to seek approval for
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
 ## Priority Matrix
+http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 ## MVP 
+create database and tables 
+search feature to location restaurants
+create search results page with locations and address
+create watched feature, store, and render to page 
+single page help
+rating with stars, store in db 
+aggregate ratings and render
 
 Include the full list of features that will be part of your MVP 
 
 ## POST MVP
+Historical grade chart 
+Comments
+Map 
+Auth
+find location by user location 
 
 Include the full list of features that you are considering for POST MVP
 
 ## Wireframes
+http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
 
+http://res.cloudinary.com/themostcommon/image/upload/v1515447322/IMG_7062_owp3vz.jpg
+
+http://res.cloudinary.com/themostcommon/image/upload/v1515447318/IMG_9281_qay66k.jpg
 Include images of your wireframes. 
 
 ## App Components
@@ -57,7 +74,15 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Component 1 | H | 10hrs| 12hrs | 12hrs |
+| create database and tables | H | 1hrs | 1hrs | |
+| search feature | H | 3hrs | 12hrs | |
+| create search results page/logic for filters | H | 3hrs| | |
+| create watched and store | H | 3hrs| | |
+| single page help | H | 2hrs| 1hr | |
+| create rating with stars and store | H | 5hrs| | |
+| aggregate rating and render| H | 3hrs| | |
+| styling | H | 8hrs| | |
+
 
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
