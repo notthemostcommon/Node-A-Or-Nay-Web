@@ -13,4 +13,6 @@ Locations.create = location => {
 		); 
 }; 
 
-module.exports = Locations; 
+
+
+module.exports = Locations;  

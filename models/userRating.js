@@ -14,7 +14,6 @@ Rating.findById = (id) => {
 		); 
 }; 
 
-
 // need to add rating
 Rating.create = rating => 
 	return db.one(
