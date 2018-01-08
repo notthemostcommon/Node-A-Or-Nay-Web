@@ -24,9 +24,9 @@ app.get('/', (req, res) => {
 });
 
 
-const restController = require('./controllers/rest-controller');
+const restRouter = require('./routes/rest-routes');
 
-app.use('/', restController.search);
+app.use('/', restRouter);
 
 
 app.get('*', (req, res) => {

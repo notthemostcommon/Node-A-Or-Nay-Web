@@ -20,26 +20,25 @@ restController.index = (req, res) => {
 
 // render data from API to results page 
 restController.search = (req, res) => {
-  console.log('inside search method')
-  // grab value from search field 
+	  console.log('inside search method')
+	  axios({
+	    method: 'get',
+	    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.search}`,
+	   	// url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?`,
 
-  // let searchId = $('#search').val
-  axios({
-    method: 'get',
-    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?q=${req.body.search}`,
-
-  })
-  .then( data => {
-    console.log('got this back', data)
-    // res.json(data.data)
-    res.render('/results', {
-      data: data.data
-     })
-  })
-  .catch( err => {
-  	console.log(err)
-    res.status(500).json(err)
-  })
+	  })
+	  .then( data => {
+	    console.log('got this back', data.data)
+	    
+	    // res.send("this is where results go")
+	    res.render('results', {
+	      data: data.data
+	     })
+	  })
+	  .catch( err => {
+	  	console.log(err)
+	    res.status(500).json(err)
+	  })
 }
 
 
