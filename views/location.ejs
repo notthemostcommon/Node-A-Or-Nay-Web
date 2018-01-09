@@ -1,0 +1,44 @@
+<% include ./partials/head.ejs %>
+<% include ./partials/nav.ejs %>
+<% include ./partials/help.ejs %>
+
+<h1> This is the location page </h1>
+<form>
+    <h3> Save to Watch </h3>
+    <ul id="favorite-group">
+        <li class="heart">
+            <label for="favorite"><i class="fa fa-heart" aria-hidden="true"></i></label>
+            <input type="radio" class="off" name="favorite" id="favorite" value="true"/>
+        </li>
+    <h2 class="toggle">
+      <%= `${data[0].dba} ${data[0].building} ${data[0].street}, ${data[0].boro}, ${data[0].zipcode}` %> 
+    	</h3></span> 
+     </h2>
+     <div id="accordion">
+        <% data.forEach(data => { %>
+  
+       <h2 class="toggle">
+      <%= `${(data.inspection_date).split('T')[0]} Grade: ${data.grade}`  %>
+        </h4>
+     </h2>
+    <div id="hide">
+        
+        <h4><%= `Violation: ${data.violation_description}`  %>
+        </h4>
+        
+        
+    </h4>
+        
+
+
+    </div>    
+
+<% }) %>
+</div>
+</div>
+    
+ 
+<% include ./partials/stars.ejs %>
+
+
+<% include ./partials/footer.ejs %>

@@ -10,6 +10,32 @@ $("#help-hide").click(function(){
 	$(".help-info").hide()
 }); 
 
+$( "#accordion" ).accordion({
+      collapsible: true
+    });
+
+$("ul#star-group li").on("click", function(){
+	$("ul#star-group li").removeClass("active secondary-active"); 
+	$(this).addClass("active"); 
+	$(this).prevAll().addClass("secondary-active");
+
+})
+
+$("ul#favorite-group li").on("click", function(){
+	if ($(this).prop('checked', false)){
+		
+			
+			$(this).addClass("active"); 
+		} else {
+			$("ul#favorite-group li").removeClass("active"); 
+			$(this).addClass("inactive");
+		}
+	}); 
+
+
+// $(".toggle").click(function(){
+//         $(this).parent().find("div#hide").slideToggle("slow");
+//     });
 // $('#search-submit').click(function(){
 // 	console.log($('#search').val)
 // 	return $('#search').val}; 

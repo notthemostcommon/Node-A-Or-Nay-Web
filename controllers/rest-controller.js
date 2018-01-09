@@ -26,16 +26,6 @@ restController.index = (req, res) => {
   res.render('index')
   console.log("index rendered")
 }
-// render data from DB 
-// restController.helpIndex = (req,res) => {
-//   Help.findAll()
-//     .then(help => {
-//       res.render('partials/nav', { 
-//         message:'ok',
-//         help:help
-//       })
-//     })
-// }
 
 
 // render data from API to results page 
@@ -47,26 +37,18 @@ restController.search = (req, res) => {
 
 	  })
 	  .then(data => {
-	  	
-	  	// create empty array 
-	  	 
-	  	// look through array and push most recent in
-	  	// let recent = data.data[0].camis; 
-
+	  	// if location and data match
 	  	let uniqueLocs = removeDuplicates(data.data, 'camis');
 	  	return uniqueLocs; 
-
-
-
-	  	 
-	  	console.log("this is data", uniqueLocs); 
-	  	
 	  })
 	  .then( data => {
-	  	console.log(data); 
+	  	// console.log(data); 
+	  	
 	    res.render('results', {
-	    	data: data
-	     })
+	    	data: data, 
+	    	
+	    	// address: `${data.data.building} ${data.data.street}, ${data.data.boro}, ${data.data.zipcode}`
+	     }) 
 	  })
 	  .catch( err => {
 	  	console.log(err)
@@ -74,6 +56,28 @@ restController.search = (req, res) => {
 	  })
 }
 
+restController.show = (req, res) => { 
+console.log('inside search method')
+	  axios({
+	    method: 'get',
+	    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
+
+	  })
+	  .then( data => {
+	  	console.log(`the data ${data.data}`, `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
+
+)
+	  	// console.log(data); 
+	  	// res.send("This is the location")
+	    res.render('location', {
+	    	data: data.data, 
+	     }) 
+	  }) 
+	  .catch( err => {
+	  	console.log(err)
+	    	res.status(500).json(err)
+	  })
+}
 
 
 module.exports = restController; 
