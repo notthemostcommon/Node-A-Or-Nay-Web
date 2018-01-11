@@ -19,36 +19,49 @@ You are **responsible** for scheduling time with your squad to seek approval for
 Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
 ## Priority Matrix
-http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 ## MVP 
-create database and tables 
-search feature to location restaurants
-create search results page with locations and address
-create watched feature, store, and render to page 
-single page help
-rating with stars, store in db 
-aggregate ratings and render
+-create database and tables 
+
+-search feature
+
+-search results page 
+
+-render watched 
+
+-single page help
+
+-rating with stars and store in db 
+
+-create watch/delete watch
+
+-aggregate ratings and render
+
+-create watch page 
 
 Include the full list of features that will be part of your MVP 
 
 ## POST MVP
-Historical grade chart 
-Comments
-Map 
-Auth
-find location by user location 
+-Historical grade chart 
+
+-Comments
+
+-Map 
+
+-Update 
+
+-Authentication
 
 Include the full list of features that you are considering for POST MVP
 
 ## Wireframes
-http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
+http://res.cloudinary.com/themostcommon/image/upload/v1515447318/IMG_9281_qay66k.jpg
 
 http://res.cloudinary.com/themostcommon/image/upload/v1515447322/IMG_7062_owp3vz.jpg
 
-http://res.cloudinary.com/themostcommon/image/upload/v1515447318/IMG_9281_qay66k.jpg
+http://res.cloudinary.com/themostcommon/image/upload/v1515447325/IMG_0694_lqym7c.jpg
 Include images of your wireframes. 
 
 ## App Components
@@ -74,14 +87,24 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| create database and tables | H | 1hrs | 1hrs | |
+| create database | H | 1hr | 1hr | |
 | search feature | H | 3hrs | 12hrs | |
-| create search results page/logic for filters | H | 3hrs| | |
-| create watched and store | H | 3hrs| | |
-| single page help | H | 2hrs| 1hr | |
-| create rating with stars and store | H | 5hrs| | |
-| aggregate rating and render| H | 3hrs| | |
-| styling | H | 8hrs| | |
+| render violations | H | 2hrs | 2hrs | |
+| create watched page | H | 2hrs | |  |
+| render watched page | H | 1hrs | | |
+| single page help | H | 2hrs | 1hrs | |
+| rating with stars | H | 3hrs | 1hr |  |
+| create watch and store | H | 3hrs | | |
+| logic for filtering location response | H | 3hrs| 1 hrs | |
+| aggregate ratings and render | H | 2hrs | | |
+| user auth | H | 3hrs | 5hrs | |
+| log out | H | 1hr | 2hrs| | 
+| use ajax for ratings and favorites | H | 4hrs | | |
+| add google maps search | H | 3hrs | 
+| add google maps to results | H | 2hrs | 
+
+
+
 
 
 ## Helper Functions
@@ -89,7 +112,9 @@ Helper functions should be generic enought that they can be reused in other appl
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string | 
+| Anonymous | Allow user access without logging in | 
+| Logout | Plugin to easily log out | 
+
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
@@ -106,6 +131,14 @@ Use this section to include a brief code snippet of functionality that you are p
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
+ 
+ -Search feature 
+ 
+ -User Auth: simple copy and paste and changing didn't work, had issues troubleshooting bc i didn't understand what was going on so spent time trying to learn the different modules. Ultimately, the issue was the bodyparser.json I had grabbed from a previous file was wrong. I needed to remove the .json and worked.  
+ 
+ -req.user - grab and send to the back/ render on the front end 
+ 
+ - posting to favorites to db - values posting as null 
 
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
