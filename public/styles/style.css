@@ -76,16 +76,17 @@ ul#star-group li.active, ul#star-group li.secondary-active {
     display: none; 
   }
 
-ul#favorite-group li:hover{
+.heart:hover {
   color: red; 
 }
 
-ul#favorite-group li.active {
+/*li#favorite.fav-active {
   color: red; 
  }
-ul#favorite-group li.inactive {
+li#favorite.inactive {
   color: white; 
- }
+ }*/
+
  .heart{
   color: white; 
   text-shadow: 2px 2px 7px gray; 
@@ -94,4 +95,7 @@ ul#favorite-group li.inactive {
   
 }
 
+#cancel {
+  text-decoration: none; 
+}
 

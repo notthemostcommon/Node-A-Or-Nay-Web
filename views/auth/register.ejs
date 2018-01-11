@@ -1,0 +1,16 @@
+<%# views/auth/register.ejs %>
+
+
+<form method="POST" id="register" action="/auth/register" >
+  <input name="first_name" type="text" placeholder="First Name" required />
+  <br />
+  <input name="last_name" type="text" placeholder="Last Name" required />
+  <br />
+  <input name="userName" type="email" placeholder="Email" required />
+  <br />
+  <input name="password" type="password" placeholder="Password" required />
+  <br />
+  <input type="submit" id="hide-register" value="Register!" />
+  <button><a id="cancel" href="/">Cancel</a></button>
+
+</form>

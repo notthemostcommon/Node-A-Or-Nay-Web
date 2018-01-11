@@ -1,14 +1,35 @@
 $( document ).ready(function() {
     console.log( "ready!" );
+
+
+
+ 
+
 $(".help-info").hide(); 
+$("#login").hide(); 
+$("#register").hide(); 
 
 $("#help").click(function(){
 	$(".help-info").show()
 }); 
+$("#show-login").click(function(){
+	$("#login").show()
+}); 
+
+// $("#show-register").click(function(){
+// 	$("#login").hide(); 
+// 	$("#register").show()
+// }); 
+
+$(".hide-login").click(function(){
+	$("#login").hide();
+}); 
 
 $("#help-hide").click(function(){
-	$(".help-info").hide()
+	$(".help-info").hide(); 
 }); 
+
+
 
 $( "#accordion" ).accordion({
       collapsible: true
@@ -21,16 +42,39 @@ $("ul#star-group li").on("click", function(){
 
 })
 
-$("ul#favorite-group li").on("click", function(){
-	if ($(this).prop('checked', false)){
+// $("#favorite").on("click", function(){
+// 	if ($(this).prop('checked', false)){
 		
 			
-			$(this).addClass("active"); 
-		} else {
-			$("ul#favorite-group li").removeClass("active"); 
-			$(this).addClass("inactive");
+// 			$(this).addClass("fav-active"); 
+// 		} else {
+// 			$("li#favorite").removeClass("fav-active"); 
+// 			$(this).addClass("inactive");
+// 		}
+// 	}); 
+
+// });
+
+$('#favorite').on("click", function(event) {
+	 event.preventDefault();
+	 console.log("clicked")
+    $("favorite-form").submit(); 
+    let camis = $("#locationId").val(); 
+    console.log(camis); 
+	$.ajax({
+		url: "/favorites" , 
+		method: 'POST', 
+		data: {
+			location_id: camis
 		}
+	})
+	.done(function() {
+	    $( ".heart" ).css("color", "red" );
+	  })
+	 .fail(function() {
+	    alert( "error" );
 	}); 
+}); 
 
 
 // $(".toggle").click(function(){

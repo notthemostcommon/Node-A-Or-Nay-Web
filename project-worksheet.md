@@ -23,24 +23,36 @@ Use this section to describe your final project and perhaps any links to relevan
 Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 ## MVP 
-create database and tables 
-search feature
-search results page 
-render watched 
-single page help
-rating with stars and store in db 
-create watch/delete watch
-aggregate ratings and render
-create watch page 
+-create database and tables 
+
+-search feature
+
+-search results page 
+
+-render watched 
+
+-single page help
+
+-rating with stars and store in db 
+
+-create watch/delete watch
+
+-aggregate ratings and render
+
+-create watch page 
 
 Include the full list of features that will be part of your MVP 
 
 ## POST MVP
-Historical grade chart 
-Comments
-Map 
-Update 
-Authentication
+-Historical grade chart 
+
+-Comments
+
+-Map 
+
+-Update 
+
+-Authentication
 
 Include the full list of features that you are considering for POST MVP
 
@@ -77,14 +89,19 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | --- | :---: |  :---: | :---: | :---: |
 | create database | H | 1hr | 1hr | |
 | search feature | H | 3hrs | 12hrs | |
-| render violations | H | 2hrs |  | |
-| create watched | H | 2hrs | |  |
-| render watched | H | 1hrs | | |
+| render violations | H | 2hrs | 2hrs | |
+| create watched page | H | 2hrs | |  |
+| render watched page | H | 1hrs | | |
 | single page help | H | 2hrs | 1hrs | |
-| rating with stars | H | 3hrs | |  |
+| rating with stars | H | 3hrs | 1hr |  |
 | create watch and store | H | 3hrs | | |
-| logic for filtering response | H | 3hrs| | |
+| logic for filtering location response | H | 3hrs| 1 hrs | |
 | aggregate ratings and render | H | 2hrs | | |
+| user auth | H | 3hrs | 5hrs | |
+| log out | H | 1hr | 2hrs| | 
+| use ajax for ratings and favorites | H | 4hrs | | |
+
+
 
 
 
@@ -93,7 +110,9 @@ Helper functions should be generic enought that they can be reused in other appl
 
 | Function | Description | 
 | --- | :---: |  
-| Capitalize | This will capitalize the first letter in a string | 
+| Anonymous | Allow user access without logging in | 
+| Logout | Plugin to easily log out | 
+
 
 ## Additional Libraries
  Use this section to list all supporting libraries and thier role in the project. 
@@ -110,6 +129,14 @@ Use this section to include a brief code snippet of functionality that you are p
 
 ## Issues and Resolutions
  Use this section to list of all major issues encountered and their resolution.
+ 
+ -Search feature 
+ 
+ -User Auth: simple copy and paste and changing didn't work, had issues troubleshooting bc i didn't understand what was going on so spent time trying to learn the different modules. Ultimately, the issue was the bodyparser.json I had grabbed from a previous file was wrong. I needed to remove the .json and worked.  
+ 
+ -req.user - grab and send to the back/ render on the front end 
+ 
+ - posting to favorites to db - values posting as null 
 
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                

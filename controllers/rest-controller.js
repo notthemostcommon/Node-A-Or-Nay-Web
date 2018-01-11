@@ -1,26 +1,12 @@
 const axios = require('axios');
 const Help = require('../models/help'); 
+const Location = require('../models/locations')
+const Users = require('../models/users'); 
+const Watch = require('../models/watch'); 
 const removeDuplicates = require('removeDuplicates').default;
 console.log("this is remove", removeDuplicates.default); 
 const restController = {}; 
 
-// function removeDuplicates(arr, key) {
-//     if (!(arr instanceof Array) || key && typeof key !== 'string') {
-//         return false;
-//     }
-
-//     if (key && typeof key === 'string') {
-//         return arr.filter(function (obj, index, arr) {
-//             return arr.map(function (mapObj) {
-//                 return mapObj[key];
-//             }).indexOf(obj[key]) === index;
-//         });
-//     } else {
-//         return arr.filter(function (item, index, arr) {
-//             return arr.indexOf(item) == index;
-//         });
-//     }
-// }
 
 restController.index = (req, res) => {
   res.render('index')
@@ -37,8 +23,8 @@ restController.search = (req, res) => {
 
 	  })
 	  .then(data => {
-	  	// if location and data match
 	  	let uniqueLocs = removeDuplicates(data.data, 'camis');
+	  	// console.log(`https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.search}`)
 	  	return uniqueLocs; 
 	  })
 	  .then( data => {
@@ -46,38 +32,71 @@ restController.search = (req, res) => {
 	  	
 	    res.render('results', {
 	    	data: data, 
-	    	
-	    	// address: `${data.data.building} ${data.data.street}, ${data.data.boro}, ${data.data.zipcode}`
+
 	     }) 
 	  })
 	  .catch( err => {
 	  	console.log(err)
 	    	res.status(500).json(err)
 	  })
+ // next function 
 }
 
 restController.show = (req, res) => { 
-console.log('inside search method')
+// console.log('inside show method')
 	  axios({
 	    method: 'get',
 	    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
 
 	  })
 	  .then( data => {
-	  	console.log(`the data ${data.data}`, `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
-
-)
-	  	// console.log(data); 
-	  	// res.send("This is the location")
-	    res.render('location', {
+	  	    res.render('location', {
 	    	data: data.data, 
-	     }) 
+
+	     });  
+	  	    // console.log(data)
 	  }) 
 	  .catch( err => {
 	  	console.log(err)
 	    	res.status(500).json(err)
 	  })
 }
+
+restController.favorites = (req, res) => { 
+	console.log('inside favorites method')
+	  axios({
+	    method: 'get',
+	    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
+
+	  })
+	  .then( data => {
+	  	    res.render('location', {
+	    	data: data.data, 
+	     }); 
+	  	    console.log(data); 
+	  })
+	  .catch( err => {
+	  	console.log(err)
+	    	res.status(500).json(err)
+	  });
+	  Watch.create({
+	      
+	      user_id: req.user,
+	      location_id: req.body.locationId
+    }); 
+	  console.log(Watch.create)
+    .then(watch => {
+      res.redirect("/location")
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+    console.log(req.user); 
+
+};
+
+
+  
 
 
 module.exports = restController; 

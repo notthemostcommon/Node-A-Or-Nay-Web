@@ -12,10 +12,10 @@ Watch.create = watch => {
 	return db.one(
 	`
 		INSERT INTO watch
-		(location_id, user_id)
+		(user_id, location_id)
 		VALUES ($1, $2) RETURNING *
 		`,
-		[watch.location_id, watch.user_id]
+		[watch.user_id, watch.location_id]
 		); 
 }; 
 

@@ -3,12 +3,15 @@
 <% include ./partials/help.ejs %>
 
 <h1> This is the location page </h1>
-<form>
-    <h3> Save to Watch </h3>
-    <ul id="favorite-group">
+<form id="favorite-form" method="post">
+    
+    <ul id="favorite-wrapper">
+        <h3> Save to Watch </h3>
         <li class="heart">
             <label for="favorite"><i class="fa fa-heart" aria-hidden="true"></i></label>
-            <input type="radio" class="off" name="favorite" id="favorite" value="true"/>
+            <input type="radio" name="favorite" id="favorite" value="true"/>
+            <input type="hidden" id="locationId" name="locationId" value=<%= data[0].camis %>  />
+            <input type="hidden" id="userId" name="userId" value=1  />
         </li>
     <h2 class="toggle">
       <%= `${data[0].dba} ${data[0].building} ${data[0].street}, ${data[0].boro}, ${data[0].zipcode}` %> 
@@ -36,7 +39,7 @@
 <% }) %>
 </div>
 </div>
-    
+   
  
 <% include ./partials/stars.ejs %>
 
