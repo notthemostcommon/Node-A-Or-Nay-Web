@@ -12,17 +12,18 @@ const options = {};
 
 init();
 
-// app.get('/',
-//   // Authenticate using HTTP Basic credentials, with session support disabled,
-//   // and allow anonymous requests.
-//   passport.authenticate(['basic', 'anonymId'], { session: false }),
-//   function(req, res){
-//     if (req.user) {
-//       res.json({ username: req.user.username, email: req.user.email });
-//     } else {
-//       res.json({ anonymId: req.user.uuid });
-//     }
-//   });
+passport.use(new AnonymIdStrategy());
+app.get('/',
+  // Authenticate using HTTP Basic credentials, with session support disabled,
+  // and allow anonymous requests.
+  passport.authenticate(['basic', 'anonymId'], { session: false }),
+  function(req, res){
+    if (req.user) {
+      res.json({ username: req.user.username, email: req.user.email });
+    } else {
+      res.json({ anonymId: req.user.uuid });
+    }
+  });
 
 passport.use(
   new LocalStrategy(options, (username, password, done) => {
@@ -45,7 +46,7 @@ passport.use(
       });
   })
 );
-// passport.use(new AnonymIdStrategy());
+
 
 
 

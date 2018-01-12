@@ -63,38 +63,40 @@ restController.show = (req, res) => {
 }
 
 restController.favorites = (req, res) => { 
-	console.log('inside favorites method')
-	  axios({
-	    method: 'get',
-	    url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.locationId}`,
-
-	  })
-	  .then( data => {
-	  	    res.render('location', {
-	    	data: data.data, 
-	     }); 
-	  	    console.log(data); 
-	  })
-	  .catch( err => {
-	  	console.log(err)
-	    	res.status(500).json(err)
-	  });
 	  Watch.create({
-	      
-	      user_id: req.user,
-	      location_id: req.body.locationId
-    }); 
-	  console.log(Watch.create)
-    .then(watch => {
-      res.redirect("/location")
-    })
-    .catch(err => {
+	      user_id: 1, 
+	      location_id: 44444
+	      // user_id: req.user.id, 
+	      // location_id: req.body.location_id
+    })  
+    .then(data => {
+    	res.json(data)
+    	console.log(data); 
+      })
+     .catch(err => {
       res.status(400).json(err);
     });
-    console.log(req.user); 
+    // console.log(req.user); 
 
 };
 
+
+// console.log("this is req.body", req.body)
+	//   axios({
+	//     method: 'get',
+	//     url: `https://data.cityofnewyork.us/resource/9w7m-hzhe.json?$q=${req.body.location_id}`,
+
+	//   })
+	//   .then( data => {
+	//   	    res.render('location', {
+	//     	data: data.data, 
+	//      }); 
+	//   	    // console.log("this is data", data); 
+	//   })
+	//   .catch( err => {
+	//   	console.log(err)
+	//     	res.status(500).json(err)
+	//   })
 
   
 

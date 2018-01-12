@@ -66,13 +66,16 @@ $('#favorite').on("click", function(event) {
 		method: 'POST', 
 		data: {
 			location_id: camis
-		}
+		}, 
+		contentType: "application/json; charset=utf-8",
+		dataType: "json"
 	})
-	.done(function() {
+	.done(function(data) {
+		console.log("success", data)
 	    $( ".heart" ).css("color", "red" );
 	  })
-	 .fail(function() {
-	    alert( "error" );
+	 .fail(function(data) {
+	    console.log( "error", data );
 	}); 
 }); 
 
