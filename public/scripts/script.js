@@ -8,6 +8,7 @@ $( document ).ready(function() {
 $(".help-info").hide(); 
 $("#login").hide(); 
 $("#register").hide(); 
+$("#review-textbox").hide();
 
 $("#help").click(function(){
 	$(".help-info").show()
@@ -35,25 +36,44 @@ $( "#accordion" ).accordion({
       collapsible: true
     });
 
+ 
+
 $("ul#star-group li").on("click", function(){
 	$("ul#star-group li").removeClass("active secondary-active"); 
 	$(this).addClass("active"); 
 	$(this).prevAll().addClass("secondary-active");
+	$("#review-textbox").show();
+	}); 
 
-})
+	 //    
 
-// $("#favorite").on("click", function(){
-// 	if ($(this).prop('checked', false)){
-		
-			
-// 			$(this).addClass("fav-active"); 
-// 		} else {
-// 			$("li#favorite").removeClass("fav-active"); 
-// 			$(this).addClass("inactive");
-// 		}
-// 	}); 
-
-// });
+$("#rating-submit").on("click", function(event){
+	 event.preventDefault();
+		let camis = $("#location_Id").val(); 
+	    let rating = $('input[name=ratings]:checked').val(); 
+	    let review = $("#review-area").val(); 
+	    // console.log(camis, rating, review); 
+	    $("#rating-form").submit(); 
+		$.ajax({
+			url: "/rating", 
+			method: "POST", 
+			data: {
+				location_id: camis, 
+				rating: rating, 
+				review: review
+			}, 
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+		})
+		.done(function(data) {
+			console.log("success", data)
+		    review.val(""); 
+		    review.html("Review Submitted! Thank you!")
+		  })
+		 .fail(function(data) {
+		    console.log( "error", data );
+		}); 
+	}); 
 
 $('#favorite').on("click", function(event) {
 	 event.preventDefault();

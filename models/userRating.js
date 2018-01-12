@@ -15,14 +15,14 @@ Rating.findById = (id) => {
 }; 
 
 // need to add rating
-Rating.create = rating => 
+Rating.create = rating => {
 	return db.one(
 		`
 		INSERT INTO user_ratings
 		(rating, review, camis, user_id)
 		VALUES ($1, $2, $3, $4) RETURNING *
 		`,
-		[rating.rating, rating.review, rating.location_id]
+		[rating.rating, rating.review, rating.camis, rating.user_id]
 		); 
 }; 
 

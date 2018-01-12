@@ -23,7 +23,7 @@ authRouter.post('/login', passport.authenticate('local', {
 
 authRouter.get('/logout', (req, res) => {
   req.logout();
-  console.log(req.logout())
+  console.log("this is logout", req.logout())
   res.redirect('/');
 });
 
