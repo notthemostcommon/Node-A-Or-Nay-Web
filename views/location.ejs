@@ -1,18 +1,13 @@
 <% include ./partials/head.ejs %>
 <% include ./partials/nav.ejs %>
 <% include ./partials/help.ejs %>
+<% include ./partials/favorites.ejs %> 
 
 <h1> This is the location page </h1>
-<form id="favorite-form" method="post">
-   
-    <ul id="favorite-wrapper">
-        <h3> Save to Watch </h3>
-        <li class="heart">
-            <label for="favorite"><i class="fa fa-heart" aria-hidden="true"></i></label>
-            <input type="radio" name="favorite" id="favorite" value="true"/>
-            <input type="hidden" id="locationId" name="locationId" value=<%= data[0].camis %>  />
-            <input type="hidden" id="userId" name="userId" value=1  />
-        </li>
+<div id="review-section">
+    <% include ./partials/stars.ejs %>
+</div>
+
     <h2 class="toggle">
       <%= `${data[0].dba} ${data[0].building} ${data[0].street}, ${data[0].boro}, ${data[0].zipcode}` %> 
     	</h3></span> 
@@ -41,7 +36,7 @@
 </div>
    
  
-<% include ./partials/stars.ejs %>
+
 
 
 <% include ./partials/footer.ejs %>

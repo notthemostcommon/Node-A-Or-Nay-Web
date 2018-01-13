@@ -1,4 +1,4 @@
-<form action="'/rating" method="post" id="rating-form">
+<form id="rating-form" method="post">
 	<ul id="star-group">
 		<li class="stars">
 			<label for="rating_1"><i class="fa fa-star" aria-hidden="true"></i></label>
@@ -24,7 +24,7 @@
 	</ul>
 	<div id="review-textbox">
 		<textarea id="review-area" name="review-area"></textarea> 
-		<input type="submit" id="rating-submit" name="Submit" />
+		<button id="rating-submit">Submit</button>
 		<input type="hidden" id="location_Id" name="locationId" value=<%= data[0].camis %>  />
 </div>
 

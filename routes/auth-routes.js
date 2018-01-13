@@ -12,6 +12,12 @@ authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
   res.render('auth/register');
 });
 
+authRouter.get('/logout', (req, res) => {
+  req.logout();
+  console.log("this is logout", req.logout())
+  res.redirect('/');
+});
+
 authRouter.post('/register', usersController.create);
 
 authRouter.post('/login', passport.authenticate('local', {
@@ -21,10 +27,6 @@ authRouter.post('/login', passport.authenticate('local', {
   })
 );
 
-authRouter.get('/logout', (req, res) => {
-  req.logout();
-  console.log("this is logout", req.logout())
-  res.redirect('/');
-});
+
 
 module.exports = authRouter;

@@ -94,12 +94,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | render watched page | H | 1hrs | | |
 | single page help | H | 2hrs | 1hrs | |
 | rating with stars | H | 3hrs | 1hr |  |
-| create watch and store | H | 3hrs | | |
+| create watch and store | H | 3hrs | 2hrs | |
 | logic for filtering location response | H | 3hrs| 1 hrs | |
 | aggregate ratings and render | H | 2hrs | | |
 | user auth | H | 3hrs | 5hrs | |
-| log out | H | 1hr | 2hrs| | 
+| log out | L | 1hr | 2hrs| | 
 | use ajax for ratings and favorites | H | 4hrs | | |
+| add google maps search | L | 3hrs | 
+| add google maps to results | L | 2hrs | 
 
 
 
@@ -137,6 +139,10 @@ Use this section to include a brief code snippet of functionality that you are p
  -req.user - grab and send to the back/ render on the front end 
  
  - posting to favorites to db - values posting as null 
+
+ - logout isn't redirecting to home page 
+
+ 
 
 #### SAMPLE.....
 **ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                

@@ -10,6 +10,7 @@ const passport = require('passport');
 const authRouter = require('./routes/auth-routes');
 const authHelpers = require('./services/auth/auth-helpers');
 const restRouter = require('./routes/rest-routes');
+const profRouter = require('./routes/profile-route'); 
 const logout = require('express-passport-logout'); 
 console.log(logout); 
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ app.use(passport.session()); // persistent login sessions
 
 app.use('/auth', authRouter);
 app.use('/', restRouter);
+app.use('/profile', profRouter); 
 
 app.use(authHelpers.loginRequired)
 app.use(methodOverride('_method'))

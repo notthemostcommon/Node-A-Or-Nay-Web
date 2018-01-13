@@ -80,12 +80,6 @@ ul#star-group li.active, ul#star-group li.secondary-active {
   color: red; 
 }
 
-/*li#favorite.fav-active {
-  color: red; 
- }
-li#favorite.inactive {
-  color: white; 
- }*/
 
  .heart{
   color: white; 

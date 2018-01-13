@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Help = require('../models/help'); 
-const Location = require('../models/locations')
+const Locations = require('../models/locations')
 const Users = require('../models/users'); 
 const Watch = require('../models/watch'); 
 const Rating = require('../models/userRating')
@@ -51,6 +51,7 @@ restController.show = (req, res) => {
 
 	  })
 	  .then( data => {
+	  	console.log("this is data:", data.data[0].dba);
 	  	    res.render('location', {
 	    	data: data.data, 
 	    	user_Id: 1
@@ -64,13 +65,27 @@ restController.show = (req, res) => {
 	  })
 }
 
+
+
 restController.favorites = (req, res) => { 
+	console.log("inside favorites");
+	console.log("this is req.body:", req.body);
+	Locations.create({
+		camis: req.body.location_id, 
+		dba: req.body.dba, 
+		building: req.body.building, 
+		street: req.body.street, 
+		boro: req.body.boro, 
+		zipcode: req.body.zipcode
+	})
 	  Watch.create({
 	      user_id: 1, 
-	      location_id: 44444
+	      // location_id: 44444
 	      // user_id: req.user.id, 
-	      // location_id: req.body.location_id
-    })  
+	      location_id: req.body.location_id
+	
+    	})	 
+     
     .then(data => {
     	res.json(data)
     	console.log(data); 
@@ -85,9 +100,9 @@ restController.favorites = (req, res) => {
 restController.rating = (req, res) => { 
 	console.log("inside rating"); 
 	  Rating.create({
-	      rating: 5, 
-	      review: "good place", 
-	      camis: 44444, 
+	      rating: req.body.rating, 
+	      review: req.body.review, 
+	      camis: req.body.location_id, 
 	      user_id: 1
 	      // user_id: req.user.id, 
 	      // location_id: req.body.location_id
@@ -103,6 +118,11 @@ restController.rating = (req, res) => {
 
 };
 
+restController.profile = (req, res) => {
+	console.log("inside profile"); 
+	res.render("profile")
+
+	}
 
   
 

@@ -2,10 +2,17 @@
 	<ul class="nav">
 		<li><button class="nav-links" id="help">Help</button></li>
 
-		<li><a href="/" class="nav-links" id="home">Home</button></a></li>
+		<li><a href="/" class="nav-links" id="home-tab">Home</button></a></li>
 
-		<li><button class="nav-links" id="login">Sign In</button></a></li>
+		<li><a href="/profile" class="nav-links" id="profile-tab">Profile</button></a></li>
+
+		<li><a href="/profile/reviews" class="nav-links" id="profile-tab">Reviews</button></a></li>
+
+		<li><a href="/profile/favorites" class="nav-links" id="profile-tab">Favorites</button></a></li>
+
+		<li><button class="nav-links" id="show-login">Sign In</button></a></li>
 	
-		<li><a href="/logout" class="nav-links" id="logout">Logout</a></li>
+		<li><form action="/logout" method="post" type="submit" class="nav-links" id="logout">Logout</form>
+		</li>
 	</ul>
 </nav>

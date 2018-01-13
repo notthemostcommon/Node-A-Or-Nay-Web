@@ -3,14 +3,13 @@ const db = require('../db/config');
 const Rating = {}; 
 
 // need to find ratings by location and aggregate score
-Rating.findById = (id) => {
+Rating.average = rating => {
 	return db.query(
 	`
 		SELECT AVG(rating)
 		FROM user_ratings
-		WHERE id = $1
+		WHERE camis = $1
 		`, 
-		[id]
 		); 
 }; 
 
@@ -25,5 +24,15 @@ Rating.create = rating => {
 		[rating.rating, rating.review, rating.camis, rating.user_id]
 		); 
 }; 
+
+Rating.findAllByUser = user_id => {
+	return db.query(
+		`
+		SELECT * FROM user_ratings
+		WHERE user_id = $1
+		`,
+		[user_id]
+		); 
+}
 
 module.exports = Rating; 

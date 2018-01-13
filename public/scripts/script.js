@@ -16,6 +16,9 @@ $("#help").click(function(){
 $("#show-login").click(function(){
 	$("#login").show()
 }); 
+$("#hide-login").on("click", function() {
+	$("#login").hide(); 
+})
 
 // $("#show-register").click(function(){
 // 	$("#login").hide(); 
@@ -46,49 +49,60 @@ $("ul#star-group li").on("click", function(){
 	}); 
 
 	 //    
-
+// opens review box and submit and adds to db
 $("#rating-submit").on("click", function(event){
-	 event.preventDefault();
+	 
 		let camis = $("#location_Id").val(); 
 	    let rating = $('input[name=ratings]:checked').val(); 
 	    let review = $("#review-area").val(); 
 	    // console.log(camis, rating, review); 
-	    $("#rating-form").submit(); 
+	    $("#rating-form").submit(function(event){
+	    	event.preventDefault();
+	    }); 
+	    
 		$.ajax({
 			url: "/rating", 
-			method: "POST", 
+			method: 'POST', 
 			data: {
 				location_id: camis, 
 				rating: rating, 
 				review: review
 			}, 
-			contentType: "application/json; charset=utf-8",
-			dataType: "json"
 		})
 		.done(function(data) {
 			console.log("success", data)
-		    review.val(""); 
-		    review.html("Review Submitted! Thank you!")
+			$("#review-area").val(""); 
+		    $("#review-textbox").text("Review Submitted! Thank you!")
 		  })
 		 .fail(function(data) {
 		    console.log( "error", data );
 		}); 
+
 	}); 
 
 $('#favorite').on("click", function(event) {
 	 event.preventDefault();
 	 console.log("clicked")
     $("favorite-form").submit(); 
-    let camis = $("#locationId").val(); 
-    console.log(camis); 
+    let camis = $("#fav-locationId").val(); 
+    let dba = $("#fav-dba").val(); 
+    let building = $("#fav-building").val(); 
+    let street = $("#fav-street").val(); 
+    let boro = $("#fav-boro").val(); 
+    let zipcode = $("#fav-zipcode").val(); 
+	// console.log(camis, dba, building, street, boro, zipcode); 
 	$.ajax({
 		url: "/favorites" , 
 		method: 'POST', 
 		data: {
-			location_id: camis
+			location_id: camis, 
+			dba: dba,
+			building: building, 
+			street: street,
+			boro: boro,
+			zipcode: zipcode
 		}, 
-		contentType: "application/json; charset=utf-8",
-		dataType: "json"
+		
 	})
 	.done(function(data) {
 		console.log("success", data)
@@ -98,6 +112,13 @@ $('#favorite').on("click", function(event) {
 	    console.log( "error", data );
 	}); 
 }); 
+
+// activates tabs from jquery ui 
+$( "#tabs" ).tabs();
+
+
+
+
 
 
 // $(".toggle").click(function(){
