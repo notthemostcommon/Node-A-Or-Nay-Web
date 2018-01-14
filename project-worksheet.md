@@ -107,6 +107,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 
 
+
 ## Helper Functions
 Helper functions should be generic enought that they can be reused in other applications. Use this section to document all helper functions that fall into this category.
 
