@@ -7,7 +7,7 @@ router.post('/results', restController.search);
 router.post('/location', restController.show);
 router.post('/favorites', restController.favorites); 
 router.post('/rating', restController.rating); 
-router.post('/help', restController.help); 
+router.post('/help', restController.index); 
 // router.post('/search', controller.search)
 
 module.exports = router;

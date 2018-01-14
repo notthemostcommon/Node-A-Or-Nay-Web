@@ -1,6 +1,12 @@
 <div id="help-info">
 	<button id="help-hide">X</button>
 	
+<% help.forEach(help => { %> 
+	<h2><%= help.question %></h2>
+	<h5><%= help.answer %></h5>
+	<% }) %> 
+	
+
 	<h2>Question</h2>
 	<h4>Answer</h4>
 </div>

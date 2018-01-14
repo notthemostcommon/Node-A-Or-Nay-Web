@@ -10,8 +10,20 @@ const restController = {};
 
 
 restController.index = (req, res) => {
-  res.render('index')
-  console.log("index rendered")
+	Help.findAll()
+  	.then (help => {
+  		res.render("index", {
+  			help: help
+  		}); 
+  		console.log(help);
+  	})
+  	.catch( err => {
+	  	console.log(err)
+	    	res.status(500).json(err)
+	  })
+  	
+  // res.render('index')
+  // console.log("index rendered")
 }
 
 
@@ -128,7 +140,7 @@ restController.profile = (req, res) => {
   	console.log("inside help"); 
   	Help.findAll()
   	.then (help => {
-  		res.render("help", {
+  		res.render("index", {
   			help: help
   		})
   	}); 

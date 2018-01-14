@@ -5,7 +5,7 @@ $( document ).ready(function() {
 
  
 
-$(".help-info").hide(); 
+$("#help-info").hide(); 
 $("#login").hide(); 
 $("#register").hide(); 
 $("#review-textbox").hide();
