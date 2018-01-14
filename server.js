@@ -9,7 +9,8 @@ const session = require('express-session');
 const passport = require('passport');
 const authRouter = require('./routes/auth-routes');
 const authHelpers = require('./services/auth/auth-helpers');
-const restRouter = require('./routes/rest-routes');
+const publicRouter = require('./routes/rest-routes');
+const valRouter = require('./routes/val-routes'); 
 const profRouter = require('./routes/profile-route'); 
 // const logout = require('express-passport-logout'); 
 const PORT = process.env.PORT || 3000;
@@ -37,9 +38,19 @@ app.get('/logout', function(req, res){
 	res.redirect('/'); 
 	console.log("log out"); 
 })
+
+
+app.get('/', (req, res) => {
+  res.render('index')
+});
+
+
+app.use('/public', publicRouter);
 app.use('/auth', authRouter);
-app.use('/', restRouter);
 app.use('/profile', checkAuthentication, profRouter); 
+app.use('/validated', checkAuthentication, valRouter);
+
+
 function checkAuthentication(req,res,next){
     if(req.isAuthenticated()){
         //if user is looged in, req.isAuthenticated() will return true 

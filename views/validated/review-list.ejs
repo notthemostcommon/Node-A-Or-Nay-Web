@@ -1,0 +1,17 @@
+<% include ../partials/val-head.ejs %>
+<% include ../partials/val-nav.ejs %>
+
+
+<h2> This is Review List </h2>
+
+<% data.forEach(data => { %>
+<i class="fa fa-pencil" aria-hidden="true"></i>
+
+<div id="review-container"> 
+<h1><%= data.camis %><%= data.rating %></h1>
+<p><%= data.review %>
+
+</div> 
+
+<% }) %> 
+<% include ../partials/footer.ejs %>

@@ -15,7 +15,7 @@ profController.index = (req, res) => {
 	  	Watch.findByUser(1)
 	  })
 		  .then ( watch => {
-		  	res.render('profile', {
+		  	res.render('validated/profile', {
 		      	user: "test",
 		    	rating: rating, 
 		    	watch: watch, 
@@ -38,7 +38,7 @@ profController.favShow = (req, res) => {
 		  .then ( data => {
 		  	console.log("this is join data", data);
 		  	
-		  		res.render('favorite-list', {
+		  		res.render('validated/favorite-list', {
 		      	user: "test", 
 		    	data: data, 
 		    	
@@ -55,7 +55,7 @@ profController.reviewShow = (req, res) => {
 	Rating.findAllByUser(1)
 	.then (data => { 
 		console.log("this is review data", data);
-		res.render('review-list', {
+		res.render('validated/review-list', {
 		      	user: "test", 
 		    	data: data
 		}); 

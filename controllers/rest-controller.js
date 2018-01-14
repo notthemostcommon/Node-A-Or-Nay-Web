@@ -1,22 +1,22 @@
 const axios = require('axios');
 const Help = require('../models/help'); 
-const Locations = require('../models/locations')
-const Users = require('../models/users'); 
-const Watch = require('../models/watch'); 
-const Rating = require('../models/userRating')
+// const Locations = require('../models/locations')
+// const Users = require('../models/users'); 
+// const Watch = require('../models/watch'); 
+// const Rating = require('../models/userRating')
 const removeDuplicates = require('removeDuplicates').default;
 console.log("this is remove", removeDuplicates.default); 
-const restController = {}; 
+const publicController = {}; 
 
 
-restController.index = (req, res) => {
+publicController.index = (req, res) => {
   res.render('index')
   console.log("index rendered")
 }
 
 
 // render data from API to results page 
-restController.search = (req, res) => {
+publicController.search = (req, res) => {
 	  console.log('inside search method')
 	  axios({
 	    method: 'get',
@@ -43,7 +43,7 @@ restController.search = (req, res) => {
  // next function 
 }
 
-restController.show = (req, res) => { 
+publicController.show = (req, res) => { 
 // console.log('inside show method')
 	  axios({
 	    method: 'get',
@@ -67,68 +67,68 @@ restController.show = (req, res) => {
 
 
 
-restController.favorites = (req, res) => { 
-	console.log("inside favorites");
-	console.log("this is req.body:", req.body);
-	Locations.create({
-		camis: req.body.location_id, 
-		dba: req.body.dba, 
-		building: req.body.building, 
-		street: req.body.street, 
-		boro: req.body.boro, 
-		zipcode: req.body.zipcode
-	})
-	  Watch.create({
-	      user_id: 1, 
-	      // location_id: 44444
-	      // user_id: req.user.id, 
-	      location_id: req.body.location_id
+// publicController.favorites = (req, res) => { 
+// 	console.log("inside favorites");
+// 	console.log("this is req.body:", req.body);
+// 	Locations.create({
+// 		camis: req.body.location_id, 
+// 		dba: req.body.dba, 
+// 		building: req.body.building, 
+// 		street: req.body.street, 
+// 		boro: req.body.boro, 
+// 		zipcode: req.body.zipcode
+// 	})
+// 	  Watch.create({
+// 	      user_id: 1, 
+// 	      // location_id: 44444
+// 	      // user_id: req.user.id, 
+// 	      location_id: req.body.location_id
 	
-    	})	 
+//     	})	 
      
-    .then(data => {
-    	res.json(data)
-    	console.log(data); 
-      })
-     .catch(err => {
-      res.status(400).json(err);
-    });
-    // console.log(req.user); 
+//     .then(data => {
+//     	res.json(data)
+//     	console.log(data); 
+//       })
+//      .catch(err => {
+//       res.status(400).json(err);
+//     });
+//     // console.log(req.user); 
 
-};
+// };
 
-restController.rating = (req, res) => { 
-	console.log("inside rating"); 
-	  Rating.create({
-	      rating: req.body.rating, 
-	      review: req.body.review, 
-	      camis: req.body.location_id, 
-	      user_id: 1
-	      // user_id: req.user.id, 
-	      // location_id: req.body.location_id
-    })  
-    .then(data => {
-    	res.json(data)
-    	console.log("this is rating data", data); 
-      })
-     .catch(err => {
-      res.status(400).json(err);
-    });
-    // console.log(req.user); 
+// publicController.rating = (req, res) => { 
+// 	console.log("inside rating"); 
+// 	  Rating.create({
+// 	      rating: req.body.rating, 
+// 	      review: req.body.review, 
+// 	      camis: req.body.location_id, 
+// 	      user_id: 1
+// 	      // user_id: req.user.id, 
+// 	      // location_id: req.body.location_id
+//     })  
+//     .then(data => {
+//     	res.json(data)
+//     	console.log("this is rating data", data); 
+//       })
+//      .catch(err => {
+//       res.status(400).json(err);
+//     });
+//     // console.log(req.user); 
 
-};
+// };
 
-restController.profile = (req, res) => {
-	console.log("inside profile"); 
-	res.render("profile")
+// publicController.profile = (req, res) => {
+// 	console.log("inside profile"); 
+// 	res.render("profile")
 
-	}
+// 	}
 
-  restController.help = (req, res) => {
+  publicController.help = (req, res) => {
   	Help.findAll()
   	.then (help => {
   		res.render("partials/help", {
-  			help: help
+  			help: help, 
   		}); 
   		console.log(help);
   	})
@@ -139,4 +139,4 @@ restController.profile = (req, res) => {
   } 
 
 
-module.exports = restController; 
+module.exports = publicController; 

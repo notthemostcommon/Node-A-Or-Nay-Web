@@ -1,5 +1,5 @@
-<% include ./partials/head.ejs %>
-<% include ./partials/nav.ejs %>
+<% include ../partials/val-head.ejs %>
+<% include ../partials/val-nav.ejs %>
 
 <div id="accordion">
 <% data.forEach(data => { %>
@@ -15,7 +15,7 @@
     	
     	<h4><%= `Violations: ${data.violation_description}` %>
     	<h4>
-      <form action="/public/location" method="POST" >
+      <form action="/validated/location" method="POST" >
       	<input type="hidden" id="locationId" name="locationId" value=<%= data.camis %>  />
     
 		<input id="location-submit" type="submit" value="Show More Violations" />
@@ -31,4 +31,4 @@
 </div>
 </div>
 
-<% include ./partials/footer.ejs %>
+<% include ../partials/footer.ejs %>

@@ -5,12 +5,10 @@ $("#login").hide();
 $("#register").hide(); 
 $("#review-textbox").hide();
 
-// $("#help").on("click", function(){
-// 	$("#help-info").show()
-// 	$("#help-form").submit(function(event){
-// 		event.preventDefault(); 
-// 	})
-// }); 
+$("#help").on("click", function(){
+	$("#help-form").submit()
+}); 
+
 $("#show-login").click(function(){
 	$("#login").show()
 }); 
@@ -28,30 +26,83 @@ $(".hide-login").click(function(){
 	$("#login").hide();
 }); 
 
-
 $( "#accordion" ).accordion({
       collapsible: true
     });
 
- // warn user to login 
+ 
+
 $("ul#star-group li").on("click", function(){
 	$("ul#star-group li").removeClass("active secondary-active"); 
 	$(this).addClass("active"); 
 	$(this).prevAll().addClass("secondary-active");
-	$(".login-notice").html('<a href="auth/register">Login</a>')
-	.append(" to review this location"); 
-	
+	$("#review-textbox").show();
 	}); 
 
 	 //    
+// opens review box and submit and adds to db
+$("#rating-submit").on("click", function(event){
+	 
+		let camis = $("#location_Id").val(); 
+	    let rating = $('input[name=ratings]:checked').val(); 
+	    let review = $("#review-area").val(); 
+	    // console.log(camis, rating, review); 
+	    $("#rating-form").submit(function(event){
+	    	event.preventDefault();
+	    }); 
+	    
+		$.ajax({
+			url: "/validated/rating", 
+			method: 'POST', 
+			data: {
+				location_id: camis, 
+				rating: rating, 
+				review: review
+			}, 
+		})
+		.done(function(data) {
+			console.log("success", data)
+			$("#review-area").val(""); 
+		    $("#review-textbox").text("Review Submitted! Thank you!")
+		  })
+		 .fail(function(data) {
+		    console.log( "error", data );
+		}); 
+
+	}); 
 
 $('#favorite').on("click", function(event) {
 	 event.preventDefault();
 	 console.log("clicked")
-	$("#save").html('<a href="auth/register">Login</a>')
-	.append(" to favorite this location"); 
-	
+    $("favorite-form").submit(); 
+    let camis = $("#fav-locationId").val(); 
+    let dba = $("#fav-dba").val(); 
+    let building = $("#fav-building").val(); 
+    let street = $("#fav-street").val(); 
+    let boro = $("#fav-boro").val(); 
+    let zipcode = $("#fav-zipcode").val(); 
+	// console.log(camis, dba, building, street, boro, zipcode); 
+	$.ajax({
+		url: "/validated/favorites" , 
+		method: 'POST', 
+		data: {
+			location_id: camis, 
+			dba: dba,
+			building: building, 
+			street: street,
+			boro: boro,
+			zipcode: zipcode
+		}, 
+		
+	})
+	.done(function(data) {
+		console.log("success", data)
+	    $( ".heart" ).css("color", "red" );
+	  })
+	 .fail(function(data) {
+	    console.log( "error", data );
 	}); 
+}); 
 
 // activates tabs from jquery ui 
 $( "#tabs" ).tabs();
