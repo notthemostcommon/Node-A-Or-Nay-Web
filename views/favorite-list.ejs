@@ -1,0 +1,20 @@
+<% include ./partials/head.ejs %>
+<% include ./partials/nav.ejs %>
+<% include ./auth/login.ejs %>
+<% include ./auth/register.ejs %> 
+
+<h2> This is Favorite List </h2>
+
+<% data.forEach(data => { %>
+
+<h2><%= data.dba %></h2>
+<i class="fa fa-minus-circle" aria-hidden="true"></i>
+<div class="address"><%= `${data.building} ${data.street}, ${data.boro}, ${data.zipcode}`%> 
+
+<% }) %> 
+
+</body>
+</html>
+
+id: 16,
+    

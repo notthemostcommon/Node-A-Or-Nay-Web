@@ -1,0 +1,16 @@
+<% include ./partials/head.ejs %>
+<% include ./partials/nav.ejs %>
+<% include ./auth/login.ejs %>
+<% include ./auth/register.ejs %> 
+
+
+
+<form action="/results" method="POST">
+<input id="autocomplete" type="text" placeholder="Restaurant Name" name="search">
+<input id="search-submit" type="submit" value="submit">
+</form>
+
+
+
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,95 @@
+#nav-wrapper {
+  display: flex; 
+  flex-direction: row; 
+  grid-area: header; 
+  font-family: 'Open Sans', sans-serif;
+  color: white; 
+}
+
+.nav {
+  list-style-type: none; 
+  font-family: 'Open Sans', sans-serif;
+}
+
+.nav:firstchild li {
+  margin-right: auto; 
+}
+
+nav:li {
+
+	padding: 20px;
+  font-size: 30px;
+	font-variant: small-caps;
+}
+
+.nav-link {
+   align-self: flex-start;
+   
+}
+.nav-links a {
+  color: white;
+  text-decoration: none; 
+  flex: 1;
+  align-self: flex-end;
+}
+
+.fixed-height {
+      padding: 1px;
+      max-height: 200px;
+      overflow: auto;
+
+}
+#accordion {
+  display: flex; 
+  justify-content: space-between;
+  flex-direction: column; 
+}
+
+ul{
+  padding: 0; 
+  margin: 0; 
+
+}
+
+li{
+  list-style-type: none; 
+  display: inline-block; 
+  margin: 10px; 
+}
+
+.stars{
+  color: white; 
+  text-shadow: 2px 2px 7px gray; 
+
+  font-size: 50px !important
+  
+}
+ul#star-group li:hover {
+  color: yellow; 
+}
+
+ul#star-group li.active, ul#star-group li.secondary-active {
+  color: yellow; 
+ }
+
+ input[type="radio"]{
+    display: none; 
+  }
+
+.heart:hover {
+  color: red; 
+}
+
+
+ .heart{
+  color: white; 
+  text-shadow: 2px 2px 7px gray; 
+
+  font-size: 50px !important
+  
+}
+
+#cancel {
+  text-decoration: none; 
+}
+

@@ -1,0 +1,42 @@
+<% include ./partials/head.ejs %>
+<% include ./partials/nav.ejs %>
+<% include ./partials/help.ejs %>
+<% include ./partials/favorites.ejs %> 
+
+<h1> This is the location page </h1>
+<div id="review-section">
+    <% include ./partials/stars.ejs %>
+</div>
+
+    <h2 class="toggle">
+      <%= `${data[0].dba} ${data[0].building} ${data[0].street}, ${data[0].boro}, ${data[0].zipcode}` %> 
+    	</h3></span> 
+     </h2>
+     <div id="accordion">
+        <% data.forEach(data => { %>
+  
+       <h2 class="toggle">
+      <%= `${(data.inspection_date).split('T')[0]} Grade: ${data.grade}`  %>
+        </h4>
+     </h2>
+    <div id="hide">
+        
+        <h4><%= `Violation: ${data.violation_description}`  %>
+        </h4>
+        
+        
+    </h4>
+        
+
+
+    </div>    
+
+<% }) %>
+</div>
+</div>
+   
+ 
+
+
+
+<% include ./partials/footer.ejs %>
