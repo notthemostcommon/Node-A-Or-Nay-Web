@@ -39,7 +39,15 @@ app.get('/logout', function(req, res){
 })
 app.use('/auth', authRouter);
 app.use('/', restRouter);
-app.use('/profile', profRouter); 
+app.use('/profile', checkAuthentication, profRouter); 
+function checkAuthentication(req,res,next){
+    if(req.isAuthenticated()){
+        //if user is looged in, req.isAuthenticated() will return true 
+        next();
+    } else{
+        res.redirect("/login");
+    }
+}
 
 app.use(authHelpers.loginRequired)
 app.use(methodOverride('_method'))
