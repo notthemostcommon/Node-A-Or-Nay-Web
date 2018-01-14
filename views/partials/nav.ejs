@@ -1,18 +1,34 @@
 <nav id="nav-wrapper">
 	<ul class="nav">
-		<li><button class="nav-links" id="help">Help</button></li>
+		<li>
+			<form action="/help" id="help-form" method="post">
+			<button class="nav-links" id="help">Help</button>
+		</form>
+	</li>
 
-		<li><a href="/" class="nav-links" id="home-tab">Home</button></a></li>
+		<li>
+			<a href="/" class="nav-links" id="home-tab">Home</a>
+		</li>
 
-		<li><a href="/profile" class="nav-links" id="profile-tab">Profile</button></a></li>
+		<li>
+			<a href="/profile" class="nav-links" id="profile-tab">Profile</a>
+		</li>
 
-		<li><a href="/profile/reviews" class="nav-links" id="profile-tab">Reviews</button></a></li>
+		<li>
+			<a href="/profile/reviews" class="nav-links" id="profile-tab">Reviews</a>
+		</li>
 
-		<li><a href="/profile/favorites" class="nav-links" id="profile-tab">Favorites</button></a></li>
+		<li>
+			<a href="/profile/favorites" class="nav-links" id="profile-tab">Favorites</a>
+		</li>
 
-		<li><button class="nav-links" id="show-login">Sign In</button></a></li>
+		<li>
+			<button class="nav-links" id="show-login">Sign In</button></a></li>
 	
-		<li><form action="/logout" method="post" type="submit" class="nav-links" id="logout">Logout</form>
+		<li>
+			<form action="/logout" method="get" >
+			<input type="submit" class="nav-links" id="logout" name="Logout" /> 
+		</form>
 		</li>
 	</ul>
 </nav>

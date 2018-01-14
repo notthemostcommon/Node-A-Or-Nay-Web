@@ -10,8 +10,11 @@ $("#login").hide();
 $("#register").hide(); 
 $("#review-textbox").hide();
 
-$("#help").click(function(){
-	$(".help-info").show()
+$("#help").on("click", function(){
+	$("#help-info").show()
+	$("#help-form").submit(function(event){
+		event.preventDefault(); 
+	})
 }); 
 $("#show-login").click(function(){
 	$("#login").show()
@@ -29,8 +32,8 @@ $(".hide-login").click(function(){
 	$("#login").hide();
 }); 
 
-$("#help-hide").click(function(){
-	$(".help-info").hide(); 
+$("#help-hide").on("click",function(){
+	$("#help-info").hide(); 
 }); 
 
 

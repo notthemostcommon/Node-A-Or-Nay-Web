@@ -11,8 +11,7 @@ const authRouter = require('./routes/auth-routes');
 const authHelpers = require('./services/auth/auth-helpers');
 const restRouter = require('./routes/rest-routes');
 const profRouter = require('./routes/profile-route'); 
-const logout = require('express-passport-logout'); 
-console.log(logout); 
+// const logout = require('express-passport-logout'); 
 const PORT = process.env.PORT || 3000;
 
 require('dotenv').config();
@@ -32,7 +31,12 @@ app.use(session({
 app.use(passport.initialize()); // <-- Registers the Passport middleware.
 app.use(passport.session()); // persistent login sessions
 
-
+// app.get('/logout', logout());
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/'); 
+	console.log("log out"); 
+})
 app.use('/auth', authRouter);
 app.use('/', restRouter);
 app.use('/profile', profRouter); 
@@ -57,7 +61,7 @@ app.get('*', (req, res) => {
   })
 })
 
-app.get('/logout', logout());
+
 
   app.listen(PORT, () =>{
     console.log(`listening on port ${PORT}`)

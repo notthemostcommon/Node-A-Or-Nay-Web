@@ -124,7 +124,16 @@ restController.profile = (req, res) => {
 
 	}
 
-  
+  restController.help = (req, res) => {
+  	console.log("inside help"); 
+  	Help.findAll()
+  	.then (help => {
+  		res.render("help", {
+  			help: help
+  		})
+  	}); 
+  	console.log(help); 
+  }; 
 
 
 module.exports = restController; 
