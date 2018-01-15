@@ -13,13 +13,17 @@ Locations.create = location => {
 		); 
 }; 
 
-Locations.findByUser = location_id => {
+Locations.findByCamis = camis => {
 	return db.query(
 		`
 		SELECT * FROM locations
-		WHERE location_id = $1
-		`, [location_id]
+		WHERE camis = $1
+		`, [camis]
 		); 
+}
+
+Locations.findAll = () => {
+		return db.query('SELECT * FROM locations'); 
 }
 
 

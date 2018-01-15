@@ -1,6 +1,6 @@
 const axios = require('axios');
 const Help = require('../models/help'); 
-const Location = require('../models/locations')
+const Locations = require('../models/locations')
 const Users = require('../models/users'); 
 const Watch = require('../models/watch'); 
 const Rating = require('../models/userRating')
@@ -9,14 +9,14 @@ const profController = {};
 
 profController.index = (req, res) => {
 	console.log("inside profile"); 
-  	Rating.findAllByUser(1)
+  	Rating.findAllByUser(req.user.id)
 	  	
 	  .then( rating => {
-	  	Watch.findByUser(1)
+	  	Watch.findByUser(req.user.id)
 	  })
 		  .then ( watch => {
 		  	res.render('validated/profile', {
-		      	user: "test",
+		      	user: req.user,
 		    	rating: rating, 
 		    	watch: watch, 
 		  })
@@ -34,12 +34,12 @@ profController.index = (req, res) => {
 // grab favorites by user_id and grab locations by camis 
 profController.favShow = (req, res) => {
 	console.log("inside favShow"); 
-	  	Watch.join(1)
+	  	Watch.join(req.user.id)
 		  .then ( data => {
-		  	console.log("this is join data", data);
+		  	console.log("this is join data", data, "this is req.user.id", req.user.id);
 		  	
 		  		res.render('validated/favorite-list', {
-		      	user: "test", 
+		      	user: req.user, 
 		    	data: data, 
 		    	
 		  });
@@ -52,11 +52,11 @@ profController.favShow = (req, res) => {
 
 profController.reviewShow = (req, res) => {
 	console.log("inside reviewShow"); 
-	Rating.findAllByUser(1)
+	Rating.join(req.user.id)
 	.then (data => { 
-		console.log("this is review data", data);
+		console.log("this is review data", data,"this is req.user.id", req.user.id);
 		res.render('validated/review-list', {
-		      	user: "test", 
+		      	user: req.user, 
 		    	data: data
 		}); 
 	})
@@ -64,6 +64,64 @@ profController.reviewShow = (req, res) => {
 		  	res.status(400).json(err); 
 		  }); 
 		}; 
-// profController.reviewEdit = (req, res) => 
 
+profController.reviewEdit = (req, res) => {
+	console.log("inside review edit");
+	Rating.findById(req.params.id)
+	.then(data => {
+	// Rating.findById(req.params.id)
+	// .then(rating => {
+	// 	console.log("this is reviewEdit rating", rating);
+	// 	Locations.findAll()
+	// 	.then(locations => {
+	// 		console.log("this is reviewEdit locations", locations)
+			res.render('validated/review-edit', {
+				user: req.user,
+				data: data
+				// rating: rating, 
+				// locations: locations
+			});  
+			console.log("this is reviewEdit data", data); 
+	  })
+	
+		.catch(err => {
+		  	res.status(400).json(err); 
+	  	})
+
+    .catch(err => {
+      res.status(400).json(err);
+  		});
+	// });  
+}; 
+
+profController.update = (req, res) => {
+	console.log("inside update");
+	Rating.update({
+		rating: req.body.rating, 
+		review: req.body.review
+	}, req.body.id)
+	.then(() => {
+		res.redirect('reviews')
+	})
+	.catch(err => {
+		res.status(400).json(err); 
+	}); 
+	
+ }
+
+profController.delete = (req, res) => {
+	console.log("inside destroy!"); 
+	Watch.destroy(req.params.id)
+	// .then(() => {
+	// 	res.redirect('/profile/favorites')
+	// })
+	.then(() => {
+    	res.json(data)
+    	console.log("this is rating data", data); 
+      })
+	.catch(err => {
+		res.status(400).json(err); 
+	}); 
+}
+   
 module.exports = profController; 

@@ -113,6 +113,55 @@ $('#favorite').on("click", function(event) {
 	    console.log( "error", data );
 	}); 
 }); 
+ $("#delete").on("click", function() {
+ 	let id = $("#fave-id").val() 
+ 	$("#delete-form").submit(event)
+ 	event.preventDefault();
+ 	console.log("click", id)
+ 	
+ 	$.ajax({
+		url: `profile/${id}` , 
+		method: 'DELETE', 
+	})
+	.done(function(data) {
+		console.log("success", data)
+	    // $( ".heart" ).css("color", "red" );
+	  })
+	 .fail(function(data) {
+	    console.log( "error", data );
+	}); 
+}); 
+
+
+
+// $('#review-submit').on("click", function(event) {
+// 	 event.preventDefault();
+// 	 console.log("clicked")
+//     $("review-edit-form").submit(); 
+//     let rating = $("#edit-rating").val(); 
+//     let review = $("#edit-review").val(); 
+//     let id = $("#edit-id").val(); 
+    
+// 	console.log(rating, review); 
+// 	$.ajax({
+// 		url: "/profile/reviews/edit" , 
+// 		method: 'PUT', 
+// 		data: {
+// 			rating: rating, 
+// 			review: review, 
+// 			id: id
+
+// 		}, 
+		
+// 	})
+// 	.done(function(data) {
+// 		console.log("success", data)
+	    
+// 	  })
+// 	 .fail(function(data) {
+// 	    console.log( "error", data );
+// 	}); 
+// }); 
 
 // activates tabs from jquery ui 
 $( "#tabs" ).tabs();

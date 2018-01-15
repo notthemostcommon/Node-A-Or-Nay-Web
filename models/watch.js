@@ -34,7 +34,7 @@ Watch.destroy = id => {
 Watch.join = (user_id) => {
 	return db.query(
 	`
-		SELECT watch.*, locations.* 
+		SELECT DISTINCT locations.* 
 		FROM watch 
 		INNER JOIN locations 
 		ON watch.location_id=locations.camis 

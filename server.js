@@ -44,6 +44,8 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
+app.use(methodOverride('_method'))
+app.use(morgan('dev'));
 
 app.use('/public', publicRouter);
 app.use('/auth', authRouter);
@@ -61,8 +63,7 @@ function checkAuthentication(req,res,next){
 }
 
 app.use(authHelpers.loginRequired)
-app.use(methodOverride('_method'))
-app.use(morgan('dev'));
+
 
 
 app.set('views', path.join(__dirname, 'views'));

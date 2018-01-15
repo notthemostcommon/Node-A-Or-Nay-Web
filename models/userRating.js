@@ -35,16 +35,50 @@ Rating.findAllByUser = user_id => {
 		); 
 }
 
+Rating.findById = id => {
+	return db.oneOrNone(
+		`
+		SELECT * FROM user_ratings
+		WHERE id = $1
+		`,
+		[id]
+		); 
+}
+
+Rating.update = (user_ratings, id) => {
+  return db.none(
+    `
+      UPDATE user_ratings SET
+      rating = $1,
+      review = $2
+      WHERE id = $3
+    `,
+    [user_ratings.rating, user_ratings.review, id]
+  );
+};
 Rating.join = (user_id) => {
 	return db.query(
 	`
-		SELECT userRating.*, locations.* 
-		FROM userRating 
-		INNER JOIN locations 
-		ON userRating.camis=locations.camis 
+		SELECT DISTINCT user_ratings.*, locations.dba
+		FROM user_ratings
+		INNER JOIN locations
+		ON user_ratings.camis=locations.camis 
 		WHERE user_id = $1
 		`, 
 		[user_id]
 		); 
 }; 
+
+Rating.findForEdit = (id) => {
+	return db.oneOrNone(
+		`
+		SELECT user_ratings.*, locations.dba
+		FROM locations 
+		INNER JOIN user_ratings
+		ON user_ratings.camis=locations.camis 
+		WHERE id = $1
+		`, 
+		[id]
+		); 
+}
 module.exports = Rating; 

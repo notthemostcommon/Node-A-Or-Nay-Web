@@ -2,19 +2,7 @@
 <% include ../partials/val-nav.ejs %>
 
 
-<h2> This is Review List </h2>
-
-<% data.forEach(data => { %>
-<a href="<%= `/profile/${data.id}/edit` %>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-
-<div id="review-container"> 
-	<div id="review-show">
-		<h1><%= data.dba %></h1>
-		<h1>Rating: <%= data.rating %></h1>
-		<h3><%= data.review %></h3>
-		</div>
-
-	<div id="edit-review">
+<div id="edit-review">
 		<form action="<%= `/profile/${data.id}?_method=PUT` %>" 
 		id="review-edit-form" method="POST">
 		  <label for="rating">Rating</label>
@@ -25,8 +13,5 @@
 		  <input type="hidden" id="edit-id" name="id" value=<%= data.id %>  />
 		  <input type="submit" id="review-submit" value="Save changes" />
 		</form>
-	</div>
-</div> 
 
-<% }) %> 
 <% include ../partials/footer.ejs %>
