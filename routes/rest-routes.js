@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const restController = require('../controllers/rest-controller');
+const publicController = require('../controllers/rest-controller');
 
-router.get('/', restController.index);
-router.get('/profile', restController.profile);
-router.get('/help', restController.help); 
-router.post('/results', restController.search); 
-router.post('/location', restController.show);
-router.post('/favorites', restController.favorites); 
-router.post('/rating', restController.rating); 
-router.post('/help', restController.help); 
+router.get('/', publicController.index);
+// router.get('/profile', publicController.profile);
+router.get('/help', publicController.help); 
+router.post('/results', publicController.search); 
+router.post('/location', publicController.show);
+// router.post('/favorites', publicController.favorites); 
+// router.post('/rating', publicController.rating); 
+router.post('/help', publicController.help); 
 // router.post('/search', controller.search)
 
 module.exports = router;

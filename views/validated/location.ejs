@@ -1,16 +1,10 @@
-<% include ./partials/head.ejs %>
-<% include ./partials/nav.ejs %>
-<% include ./auth/login.ejs %>
-<% include ./auth/register.ejs %> 
+<% include ../partials/val-head.ejs %>
+<% include ../partials/val-nav.ejs %>
+<% include ../partials/favorites.ejs %> 
 
 <h1> This is the location page </h1>
-
-<div id="favorite-container">
-<% include ./partials/favorites.ejs %> 
-</div> 
-
 <div id="review-section">
-    <% include ./partials/stars.ejs %>
+    <% include ../partials/stars.ejs %>
 </div>
 
     <h2 class="toggle">
@@ -30,7 +24,7 @@
         </h4>
         
         
-
+    </h4>
         
 
 
@@ -44,4 +38,4 @@
 
 
 
-<% include ./partials/footer.ejs %>
+<% include ../partials/footer.ejs %>
