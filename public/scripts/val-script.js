@@ -45,6 +45,11 @@ $("#rating-submit").on("click", function(event){
 	 
 		let camis = $("#location_Id").val(); 
 	    let rating = $('input[name=ratings]:checked').val(); 
+	    let dba = $("#star-dba").val(); 
+	    let building = $("#star-building").val(); 
+	    let street = $("#star-street").val(); 
+	    let boro = $("#star-boro").val(); 
+	    let zipcode = $("#star-zipcode").val(); 
 	    let review = $("#review-area").val(); 
 	    // console.log(camis, rating, review); 
 	    $("#rating-form").submit(function(event){
@@ -57,7 +62,12 @@ $("#rating-submit").on("click", function(event){
 			data: {
 				location_id: camis, 
 				rating: rating, 
-				review: review
+				review: review,
+				dba: dba,
+				building: building, 
+				street: street,
+				boro: boro,
+				zipcode: zipcode
 			}, 
 		})
 		.done(function(data) {

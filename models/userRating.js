@@ -35,4 +35,16 @@ Rating.findAllByUser = user_id => {
 		); 
 }
 
+Rating.join = (user_id) => {
+	return db.query(
+	`
+		SELECT userRating.*, locations.* 
+		FROM userRating 
+		INNER JOIN locations 
+		ON userRating.camis=locations.camis 
+		WHERE user_id = $1
+		`, 
+		[user_id]
+		); 
+}; 
 module.exports = Rating; 

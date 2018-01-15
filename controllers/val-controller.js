@@ -101,7 +101,15 @@ valController.favorites = (req, res) => {
 };
 
 valController.rating = (req, res) => { 
-	console.log("inside rating"); 
+	console.log("inside rating");
+	Locations.create({
+		camis: req.body.location_id, 
+		dba: req.body.dba, 
+		building: req.body.building, 
+		street: req.body.street, 
+		boro: req.body.boro, 
+		zipcode: req.body.zipcode
+		}) 
 	  Rating.create({
 	      rating: req.body.rating, 
 	      review: req.body.review, 
