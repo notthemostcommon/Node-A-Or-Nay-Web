@@ -218,3 +218,13 @@ ul#star-group li.active, ul#star-group li.secondary-active {
   position: absolute: 
   right: 150px;  
  }
+
+ #login-container{
+  position: relative; 
+  bottom: 100px;
+ }
+
+ #help-container{
+  position: absolute; 
+  top: 200px;
+ }

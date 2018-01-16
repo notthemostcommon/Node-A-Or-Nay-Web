@@ -12,7 +12,7 @@ $("#review-textbox").hide();
 // 	})
 // }); 
 $("#show-login").click(function(){
-	$("#login").show()
+	$("#login").slideDown()
 }); 
 $("#hide-login").on("click", function() {
 	$("#login").hide(); 
@@ -45,10 +45,11 @@ $("ul#star-group li").on("click", function(){
 
 	 //    
 
+
 $('#favorite').on("click", function(event) {
 	 event.preventDefault();
 	 console.log("clicked")
-	$("#save").html('<a href="auth/register">Login</a>')
+	$("#favorite-form").html('<a href="auth/register">Login</a>')
 	.append(" to favorite this location"); 
 	
 	}); 

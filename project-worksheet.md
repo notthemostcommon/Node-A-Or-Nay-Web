@@ -31,7 +31,7 @@ Include a full list of features that have been prioritized based on the `Time an
 
 -render watched 
 
--single page help
+-single page help - ended up putting this on it's own route bc it seemed really basic to do single page, created a table for questions and answers and didn't want to have to render for the same query for every single page
 
 -rating with stars and store in db 
 
@@ -46,13 +46,23 @@ Include the full list of features that will be part of your MVP
 ## POST MVP
 -Historical grade chart 
 
--Comments
+-Comments - was able to do 
 
 -Map 
 
 -Update 
 
--Authentication
+-Authentication - was able to implement 
+
+- Better styling and mobile first layout 
+
+- Implement google maps autocomplete
+
+- Use google maps to find location and display nearby locations 
+
+- Include average ratings, include a better rating edit form with stars
+
+- Have the favorite render when visiting a page that you favorites/ remove rating feature if you have rated it
 
 Include the full list of features that you are considering for POST MVP
 
@@ -96,12 +106,13 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | rating with stars | H | 3hrs | 1hr |  |
 | create watch and store | H | 3hrs | 2hrs | |
 | logic for filtering location response | H | 3hrs| 1 hrs | |
-| aggregate ratings and render | H | 2hrs | | |
+| aggregate ratings and render | H | 2hrs | .5hr | |
 | user auth | H | 3hrs | 5hrs | |
 | log out | L | 1hr | 2hrs| | 
-| use ajax for ratings and favorites | H | 4hrs | | |
+| use ajax for ratings and favorites | H | 4hrs | 10hrs | |
 | add google maps search | L | 3hrs | 
 | add google maps to results | L | 2hrs | 
+total probably 80 hrs 
 
 
 
@@ -127,6 +138,9 @@ Use this section to include a brief code snippet of functionality that you are p
 ## jQuery Discoveries
  Use this section to list some, but not all, of the jQuery methods and\or functionality discovered while working on this project.
 
+- jquery slideToggle
+-  
+- .accordion
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  
 
@@ -137,11 +151,15 @@ Use this section to include a brief code snippet of functionality that you are p
  
  -User Auth: simple copy and paste and changing didn't work, had issues troubleshooting bc i didn't understand what was going on so spent time trying to learn the different modules. Ultimately, the issue was the bodyparser.json I had grabbed from a previous file was wrong. I needed to remove the .json and worked.  
  
- -req.user - grab and send to the back/ render on the front end 
+ -req.user - grab and send to the back/ render on the front end - kept trying to write logic to determine if user was logged in - spent way to much time and finally realized that I needed completely different auth and public routes
  
- - posting to favorites to db - values posting as null 
+ - posting to favorites to db - values posting as null - learned to console log everything bc even though I thought that the data was there, it was never there so I had to figure out why
 
- - logout isn't redirecting to home page 
+ - logout isn't redirecting to home page - had to put a route on my server.js page and it worked... eventually realized that I needed to have the route be auth/logout but I got it working
+
+ - finally understood chaining promises - i never understood how to chain promises especially if you are using one call to grab information on another call. the "data =>" was the data being returned and could be used in the next call
+
+ 
 
  
 

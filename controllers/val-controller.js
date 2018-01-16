@@ -4,10 +4,26 @@ const Locations = require('../models/locations')
 const Users = require('../models/users'); 
 const Watch = require('../models/watch'); 
 const Rating = require('../models/userRating')
-const removeDuplicates = require('removeDuplicates').default;
-console.log("this is remove", removeDuplicates.default); 
+// const removeDuplicates = require('removeDuplicates').default;
+// console.log("this is remove", removeDuplicates.default); 
 const valController = {}; 
+function removeDuplicates(arr, key) {
+    if (!(arr instanceof Array) || key && typeof key !== 'string') {
+        return false;
+    }
 
+    if (key && typeof key === 'string') {
+        return arr.filter(function (obj, index, arr) {
+            return arr.map(function (mapObj) {
+                return mapObj[key];
+            }).indexOf(obj[key]) === index;
+        });
+    } else {
+        return arr.filter(function (item, index, arr) {
+            return arr.indexOf(item) == index;
+        });
+    }
+}
 
 valController.index = (req, res) => {
 	  res.render('validated/index', {
