@@ -213,3 +213,8 @@ ul#star-group li.active, ul#star-group li.secondary-active {
   width: 200px; 
   height: 200px; 
  }
+
+ #map img{
+  position: absolute: 
+  right: 150px;  
+ }

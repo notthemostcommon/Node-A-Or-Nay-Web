@@ -23,12 +23,14 @@
 <div id="review-section">
     <% include ./partials/stars.ejs %>
 </div>
+<div id="map">
+    <img src="http://res.cloudinary.com/themostcommon/image/upload/v1516074571/IMG_8677B87FC073-1_ztsxjd.jpg" height="200" width="100" alt="map">
+</div>
      <div id="accordion">
         <% data.forEach(data => { %>
   
        <h2 class="toggle">
       <%= `${(data.inspection_date).split('T')[0]} Grade: ${data.grade}`  %>
-        </h4>
      </h2>
     <div id="hide">
         
