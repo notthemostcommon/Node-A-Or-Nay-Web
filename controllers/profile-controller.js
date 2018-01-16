@@ -109,16 +109,13 @@ profController.update = (req, res) => {
 	
  }
 
-profController.delete = (req, res) => {
-	console.log("inside destroy!"); 
-	Watch.destroy(req.params.id)
-	// .then(() => {
-	// 	res.redirect('/profile/favorites')
-	// })
+profController.destroy = (req, res) => {
+	console.log("inside destroy!", req.body); 
+	Watch.destroy(req.body.id)
 	.then(() => {
-    	res.json(data)
-    	console.log("this is rating data", data); 
-      })
+		res.redirect('/profile/favorites')
+	})
+	
 	.catch(err => {
 		res.status(400).json(err); 
 	}); 

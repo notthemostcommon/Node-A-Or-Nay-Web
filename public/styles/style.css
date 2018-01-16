@@ -1,15 +1,25 @@
+body {
+  font-family: 'PT Sans', sans-serif;
+  background-image: url("http://res.cloudinary.com/themostcommon/image/upload/v1516075307/Red_Tablecloth_gw7h60.png;"); 
+
+}
+
 #nav-wrapper {
   display: flex; 
-  flex-direction: row; 
-  grid-area: header; 
+  flex-direction: row;  
   font-family: 'Open Sans', sans-serif;
-  color: black; 
+  color: white; 
+  background-color: #B7202F;
+  position: fixed;  
+  top: 0; 
+  width: 100%; 
+  padding: 0;
 }
 
 .nav {
   list-style-type: none; 
   font-family: 'Open Sans', sans-serif;
-  font-size: 50px !important;
+  font-size: 35px !important;
 }
 
 .nav:firstchild li {
@@ -23,12 +33,13 @@ nav:li {
 }
 
 .nav-link {
-   align-self: flex-start;
-  
+   align-self: flex-end;
+ }
 
-   
+#welcome{
+  text-transform: capitalize;
 }
-.nav-links a {
+.nav a {
   color: white;
   text-decoration: none; 
   flex: 1;
@@ -50,6 +61,7 @@ nav:li {
 ul{
   padding: 0; 
   margin: 0; 
+  align-self: font-end; 
 
 }
 
@@ -57,6 +69,17 @@ li{
   list-style-type: none; 
   display: inline-block; 
   margin: 10px; 
+}
+#phrase {
+  max-width: 300px; 
+  max-height: 250px; 
+  position: absolute; 
+  left: 2em; 
+  top: 25%;  
+}
+p {
+ color: #0470B3; 
+ font-size: 2em; 
 }
 
 .stars{
@@ -98,13 +121,13 @@ ul#star-group li.active, ul#star-group li.secondary-active {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    border-bottom: 1px solid gray;
 }
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
+    width: 75px;
+    background-color: gray;
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -119,4 +142,74 @@ ul#star-group li.active, ul#star-group li.secondary-active {
     visibility: visible;
 }
 
+#autocomplete { 
 
+  width: 345px; 
+  height: 25px; 
+  color: #000000; 
+  font-size: 12px; 
+  font-weight: normal; 
+  font-style: normal; 
+  text-decoration: none; 
+  text-align: left; 
+  padding: 10px; 
+  background: #ffffff; 
+  border: 1px solid #000000; 
+  border-radius: 30px; 
+  }
+
+  #search-submit {
+    width: 60px; 
+    height: 50px; 
+    color: #000000; 
+    font-size: 12px; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    padding: 10px; 
+    background: #ffffff; 
+    border: 1px solid #000000; 
+    border-radius: 30px; 
+  }
+
+#logo-container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+
+ #logo {
+  
+  align-self: center; 
+    
+ }
+
+ #search-form {
+  align-self: center; 
+ }
+ 
+ #help-container {
+  position: absolute; 
+  top: 50px; 
+ }
+
+ .ui-accordion-header {
+  background-color:  #0470B3;
+
+ }
+
+.ui-accordion{
+  position: relative; 
+  top: 100px; 
+ }
+
+ .toggle {
+  position: relative; 
+  top: 100px; 
+ }
+
+ #review-area{
+  width: 200px; 
+  height: 200px; 
+ }

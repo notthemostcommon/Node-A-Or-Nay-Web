@@ -113,15 +113,18 @@ $('#favorite').on("click", function(event) {
 	    console.log( "error", data );
 	}); 
 }); 
+
  $("#delete").on("click", function() {
  	let id = $("#fave-id").val() 
- 	$("#delete-form").submit(event)
- 	event.preventDefault();
+ 	$("#delete-form").submit()
+ 	// event.preventDefault();
  	console.log("click", id)
  	
+ 	
  	$.ajax({
-		url: `profile/${id}` , 
+		url: `/profile/${id}` , 
 		method: 'DELETE', 
+		data: {id: id},
 	})
 	.done(function(data) {
 		console.log("success", data)
@@ -132,6 +135,12 @@ $('#favorite').on("click", function(event) {
 	}); 
 }); 
 
+$("#edit-review").hide(); 
+$("#edit-button").on("click", function(){
+	// $("#review-show").hide(); 
+	$("#edit-review").slideToggle()
+	// $("#edit-review").show(); 
+}); 
 
 
 // $('#review-submit').on("click", function(event) {

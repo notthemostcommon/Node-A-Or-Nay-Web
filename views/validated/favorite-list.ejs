@@ -5,19 +5,25 @@
 <h2> This is Favorite List </h2>
 
 <% data.forEach(data => { %>
-<form id="delete-form" action="<%=`/profile/${data.id}?_method=DELETE`%>" method="POST">
-   
-    <ul id="delete-wrapper">
-        <li class="delete">
-            <label for="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i></label>
-            <input type="radio" name="delete" id="delete" value="true"/>
-            <input type="hidden" id="fave-id" name="fave-id" value=<%= data.id %>  />
-        </li>
-    </ul>
-        </form>
-	<h2><%= data.dba %></h2>
+<h2><%= data.dba %></h2>
 
 	<div class="address"><%= `${data.building} ${data.street}, ${data.boro}, ${data.zipcode}`%> 
+		
+<div id="favorite-container">
+		<form  action="<%=`profile/${data.id}?_method=DELETE`%>" id="delete-form" method="POST">
+		     <!-- <input type="submit" value="Delete" /> 
+ -->
+		    <ul id="delete-wrapper">
+		        <li class="delete">
+		            <label for="delete"><i class="fa fa-minus-circle" aria-hidden="true"></i></label>
+		            <input type="radio" name="delete" id="delete" value="true"/>
+		            <input type="hidden" id="fave-id" name="fave-id" value=<%= data.id %>  />
+		          
+		        </li>
+		    </ul>
+        </form>
+    </div>
+	
 
 <% }) %> 
 

@@ -3,15 +3,17 @@
 <% include ../auth/login.ejs %>
 <% include ../auth/register.ejs %> 
 
-<input type="button" value="Go Back" onclick="history.back(-1)" />
-<div id="help-info">
-	
-	
-<% help.forEach(help => { %> 
-	<h2><%= help.question %></h2>
-	<h5><%= help.answer %></h5>
-	<% }) %> 
-	
+<div id="help-container"
+	<input type="button" value="Go Back" onclick="history.back(-1)" />
+	<div id="help-info">
+		
+		
+		<% help.forEach(help => { %> 
+			<h1><%= help.question %></h1>
+			<h3><%= help.answer %></h3>
+			<% }) %> 
+			
 
-	
+		
+	</div>
 </div>

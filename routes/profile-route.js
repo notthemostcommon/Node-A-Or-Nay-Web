@@ -7,7 +7,7 @@ router.get('/reviews', profController.reviewShow);
 router.get('/:id/edit', profController.reviewEdit); 
 // router.post('/reviews/edit', profController.update);
 router.put('/:id', profController.update); 
-router.delete('profile/:id', profController.delete); 
-
+router.delete('/:id', profController.destroy); 
+// router.delete('/delete', profController.delete); 
 
 module.exports = router; 
